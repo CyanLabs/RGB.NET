@@ -7,6 +7,7 @@ Massiive thanks to...
 Darth Affe https://github.com/DarthAffe/RGB.NET/
 Zenairo for part of the LNP/CP code, specifically the usb packets.
 Thanks to mikeobrien for HidLibrary https://github.com/mikeobrien/HidLibrary
+
 ---------------------------------------------------------------------------------------------------
 
 This project aims to unify the use of various RGB-devices.   
