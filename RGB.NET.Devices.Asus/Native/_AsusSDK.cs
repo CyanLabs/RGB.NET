@@ -188,10 +188,10 @@ namespace RGB.NET.Devices.Asus.Native
         internal static int GetMbLedCount(IntPtr handle) => _getMbLedCountPointer(handle);
         internal static void SetMbMode(IntPtr handle, int mode) => _setMbModePointer(handle, mode);
         internal static void SetMbColor(IntPtr handle, byte[] colors) => _setMbColorPointer(handle, colors, colors.Length);
-
+        
         internal static byte[] GetMbColor(IntPtr handle)
         {
-            int count = _getDramColorPointer(handle, IntPtr.Zero, 0);
+            int count = _getMbColorPointer(handle, IntPtr.Zero, 0);
             byte[] colors = new byte[count];
             IntPtr readColorsPtr = Marshal.AllocHGlobal(colors.Length);
             _getMbColorPointer(handle, readColorsPtr, colors.Length);

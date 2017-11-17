@@ -115,38 +115,17 @@ namespace RGB.NET.Devices.Asus
                 #region Graphics cards
 
                 //TODO DarthAffe 21.10.2017: This somehow returns non-existant gpus (at least for me) which cause huge lags (if a real asus-ready gpu is connected this doesn't happen)
-                int graphicCardCount = _AsusSDK.EnumerateGPU(IntPtr.Zero, 0);
-                if (graphicCardCount > 0)
-                {
-                    IntPtr grapicsCardHandles = Marshal.AllocHGlobal(graphicCardCount * IntPtr.Size);
-                    _AsusSDK.EnumerateGPU(grapicsCardHandles, graphicCardCount);
-
-                    for (int i = 0; i < graphicCardCount; i++)
-                    {
-                        IntPtr handle = Marshal.ReadIntPtr(grapicsCardHandles, i);
-                        _AsusSDK.SetGPUMode(handle, 1);
-                        AsusGraphicsCardRGBDevice device = new AsusGraphicsCardRGBDevice(new AsusGraphicsCardRGBDeviceInfo(RGBDeviceType.GraphicsCard, handle));
-                        device.Initialize();
-                        devices.Add(device);
-                    }
-                }
-
-                #endregion
-
-                #region DRAM
-
-                //TODO DarthAffe 29.10.2017: I don't know why they are even documented, but the asus guy said they aren't in the SDK right now.
-                //int dramCount = _AsusSDK.EnumerateDram(IntPtr.Zero, 0);
-                //if (dramCount > 0)
+                //int graphicCardCount = _AsusSDK.EnumerateGPU(IntPtr.Zero, 0);
+                //if (graphicCardCount > 0)
                 //{
-                //    IntPtr dramHandles = Marshal.AllocHGlobal(dramCount * IntPtr.Size);
-                //    _AsusSDK.EnumerateDram(dramHandles, dramCount);
+                //    IntPtr grapicsCardHandles = Marshal.AllocHGlobal(graphicCardCount * IntPtr.Size);
+                //    _AsusSDK.EnumerateGPU(grapicsCardHandles, graphicCardCount);
 
-                //    for (int i = 0; i < dramCount; i++)
+                //    for (int i = 0; i < graphicCardCount; i++)
                 //    {
-                //        IntPtr handle = Marshal.ReadIntPtr(dramHandles, i);
-                //        _AsusSDK.SetDramMode(handle, 1);
-                //        AsusDramRGBDevice device = new AsusDramRGBDevice(new AsusDramRGBDeviceInfo(RGBDeviceType.DRAM, handle));
+                //        IntPtr handle = Marshal.ReadIntPtr(grapicsCardHandles, i);
+                //        _AsusSDK.SetGPUMode(handle, 1);
+                //        AsusGraphicsCardRGBDevice device = new AsusGraphicsCardRGBDevice(new AsusGraphicsCardRGBDeviceInfo(RGBDeviceType.GraphicsCard, handle));
                 //        device.Initialize();
                 //        devices.Add(device);
                 //    }
@@ -154,31 +133,52 @@ namespace RGB.NET.Devices.Asus
 
                 #endregion
 
-                #region Keyboard
+                //#region DRAM
 
-                IntPtr keyboardHandle = Marshal.AllocHGlobal(IntPtr.Size);
-                if (_AsusSDK.CreateClaymoreKeyboard(keyboardHandle))
-                {
-                    _AsusSDK.SetClaymoreKeyboardMode(keyboardHandle, 1);
-                    AsusKeyboardRGBDevice device = new AsusKeyboardRGBDevice(new AsusKeyboardRGBDeviceInfo(RGBDeviceType.Keyboard, keyboardHandle, GetCulture()));
-                    device.Initialize();
-                    devices.Add(device);
-                }
+                ////TODO DarthAffe 29.10.2017: I don't know why they are even documented, but the asus guy said they aren't in the SDK right now.
+                ////int dramCount = _AsusSDK.EnumerateDram(IntPtr.Zero, 0);
+                ////if (dramCount > 0)
+                ////{
+                ////    IntPtr dramHandles = Marshal.AllocHGlobal(dramCount * IntPtr.Size);
+                ////    _AsusSDK.EnumerateDram(dramHandles, dramCount);
 
-                #endregion
+                ////    for (int i = 0; i < dramCount; i++)
+                ////    {
+                ////        IntPtr handle = Marshal.ReadIntPtr(dramHandles, i);
+                ////        _AsusSDK.SetDramMode(handle, 1);
+                ////        AsusDramRGBDevice device = new AsusDramRGBDevice(new AsusDramRGBDeviceInfo(RGBDeviceType.DRAM, handle));
+                ////        device.Initialize();
+                ////        devices.Add(device);
+                ////    }
+                ////}
 
-                #region Mouse
+                //#endregion
 
-                IntPtr mouseHandle = Marshal.AllocHGlobal(IntPtr.Size);
-                if (_AsusSDK.CreateRogMouse(mouseHandle))
-                {
-                    _AsusSDK.SetRogMouseMode(mouseHandle, 1);
-                    AsusMouseRGBDevice device = new AsusMouseRGBDevice(new AsusMouseRGBDeviceInfo(RGBDeviceType.Mouse, mouseHandle));
-                    device.Initialize();
-                    devices.Add(device);
-                }
+                //#region Keyboard
 
-                #endregion
+                //IntPtr keyboardHandle = Marshal.AllocHGlobal(IntPtr.Size);
+                //if (_AsusSDK.CreateClaymoreKeyboard(keyboardHandle))
+                //{
+                //    _AsusSDK.SetClaymoreKeyboardMode(keyboardHandle, 1);
+                //    AsusKeyboardRGBDevice device = new AsusKeyboardRGBDevice(new AsusKeyboardRGBDeviceInfo(RGBDeviceType.Keyboard, keyboardHandle, GetCulture()));
+                //    device.Initialize();
+                //    devices.Add(device);
+                //}
+
+                //#endregion
+
+                //#region Mouse
+
+                //IntPtr mouseHandle = Marshal.AllocHGlobal(IntPtr.Size);
+                //if (_AsusSDK.CreateRogMouse(mouseHandle))
+                //{
+                //    _AsusSDK.SetRogMouseMode(mouseHandle, 1);
+                //    AsusMouseRGBDevice device = new AsusMouseRGBDevice(new AsusMouseRGBDeviceInfo(RGBDeviceType.Mouse, mouseHandle));
+                //    device.Initialize();
+                //    devices.Add(device);
+                //}
+
+                //#endregion
 
                 Devices = new ReadOnlyCollection<IRGBDevice>(devices);
             }

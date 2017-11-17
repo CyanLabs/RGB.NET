@@ -35,6 +35,17 @@ namespace RGB.NET.Devices.Asus
 
         #region Methods
 
+        public Color[] GetColors()
+        {
+            byte[] colorData = _AsusSDK.GetMbColor(MainboardDeviceInfo.Handle);
+            Color[] colors = new Color[colorData.Length / 3];
+
+            for (int i = 0; i < colors.Length; i++)
+                colors[i] = new Color(colorData[(i * 3)], colorData[(i * 3) + 2], colorData[(i * 3) + 1]);
+
+            return colors;
+        }
+        
         /// <inheritdoc />
         protected override void InitializeLayout()
         {
