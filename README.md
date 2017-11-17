@@ -5,7 +5,9 @@ Modified version created for my needs, also adds Philips Ambilight and Corsair L
 Massiive thanks to... 
 
 Darth Affe https://github.com/DarthAffe/RGB.NET/
+
 Zenairo for part of the LNP/CP code, specifically the usb packets.
+
 Thanks to mikeobrien for HidLibrary https://github.com/mikeobrien/HidLibrary
 
 ---------------------------------------------------------------------------------------------------
