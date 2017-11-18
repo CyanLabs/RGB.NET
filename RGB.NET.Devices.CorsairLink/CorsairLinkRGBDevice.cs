@@ -76,26 +76,80 @@ namespace RGB.NET.Devices.CorsairLink
         //CREDIT TO Zeinaro for this
         internal static byte[][] BuldColorPacket(Color c1, byte Channel = 0x00, byte LEDs = 0x24)
         {
-
-            byte[] red1 = new byte[] {0x00,
-                   0x32, Channel, 0x00, LEDs, 0x00, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+            byte[] ch1red1 = new byte[] {0x00,
+                   0x32, 0x00, 0x00, 0x32, 0x00, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
                    c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
                    c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
-                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R};
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-            byte[] green1 = new byte[] {0x00,
-                   0x32, Channel, 0x00, LEDs, 0x01, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+            byte[] ch1green1 = new byte[] {0x00,
+                   0x32, 0x00, 0x00, 0x32, 0x01, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
                    c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
                    c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
-                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G};
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-            byte[] blue1 = new byte[] {0x00,
-                   0x32, Channel, 0x00, LEDs, 0x02, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+            byte[] ch1blue1 = new byte[] {0x00,
+                   0x32, 0x00, 0x00, 0x32, 0x02, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
                    c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
                    c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
-                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B};
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-            return new byte[3][] { red1, green1, blue1, };
+            byte[] ch1red2 = new byte[] {0x00,
+                   0x32, 0x00, 0x32, 0x16, 0x00, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch1green2 = new byte[] {0x00,
+                   0x32, 0x00, 0x32, 0x16, 0x01, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch1blue2 = new byte[] {0x00,
+                   0x32, 0x00, 0x32, 0x16, 0x02, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2red1 = new byte[] {0x00,
+                   0x32, 0x01, 0x00, 0x32, 0x00, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2green1 = new byte[] {0x00,
+                   0x32, 0x01, 0x00, 0x32, 0x01, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2blue1 = new byte[] {0x00,
+                   0x32, 0x01, 0x00, 0x32, 0x02, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2red2 = new byte[] {0x00,
+                   0x32, 0x01, 0x32, 0x16, 0x00, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R,
+                   c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, c1.R, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2green2 = new byte[] {0x00,
+                   0x32, 0x01, 0x32, 0x16, 0x01, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G,
+                   c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, c1.G, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+            byte[] ch2blue2 = new byte[] {0x00,
+                   0x32, 0x01, 0x32, 0x16, 0x02, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B,
+                   c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, c1.B, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+
+            return new byte[12][] { ch1red1, ch1green1, ch1blue1, ch1red2, ch1green2, ch1blue2, ch2red1, ch2green1, ch2blue1, ch2red2, ch2green2, ch2blue2 };
         }
 
         public static byte[] StringToByteArray(string hex)
